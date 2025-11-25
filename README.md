@@ -533,3 +533,24 @@ Bu proje AI Builder Challenge hackathon'u için geliştirilmiştir.
 
 
 **İyi hackathonlar! 🚀**
+
+* .env dosyası yeniden oluşturuldu ve yalnızca GOOGLE_API_KEY değişkeni kullanıldı.
+* GEMINI_API_KEY ile GOOGLE_API_KEY çakışması giderildi.
+* settings.py dosyasında API anahtarı okuma yapısı düzeltildi.
+* load_dotenv() doğru konuma taşındı.
+* GeminiAgent içinde genai.configure(api_key=...) doğru şekilde güncellendi.
+* Hatalı konfigürasyon parametreleri kaldırıldı (ör: wrong_param).
+* GenerativeModel çağrısı API sürümüne göre düzenlendi.
+* Rate limiter yeniden yapılandırıldı ve doğru çalışması sağlandı.
+* API_KEY_INVALID hatasına sebep olan anahtar uyuşmazlığı giderildi.
+* Çoklu tekrar eden log spam’i azaltıldı.
+* Uygulama python -m src.main komutuyla çalışacak şekilde yapılandırıldı.
+* Basit işlemler test edilerek API yanıt doğrulaması yapıldı (ör: 2+2).
+* `python-dotenv` kütüphanesi entegre edilerek .env dosyasının otomatik yüklenmesi sağlandı.
+* `GEMINI_MODEL` parametresi `gemini-1.5-pro` yerine `gemini-2.0-flash` yapılarak 404 hatası giderildi.
+* `base_module.py` dosyasındaki `_create_result` metodu, liste (List) ve sözlük (Dict) yanıtlarını dinamik işleyecek şekilde yeniden yazıldı.
+* `AttributeError: 'list' object has no attribute 'get'` hatası, tip kontrolü (isinstance) eklenerek çözüldü.
+* Pydantic kaynaklı `ValidationError` hatalarını önlemek için `steps` verilerinin string formatına dönüştürülmesi sağlandı.
+* `main.py` içinde devre dışı bırakılmış (comment-out) modüller (Calculus, Linear Algebra vb.) aktif hale getirildi.
+* API anahtarı güvenliği için `.gitignore` dosyası oluşturuldu ve `.env` takibi engellendi.
+* Gereksiz debug dosyaları (`check_key.py`, `test_agent.py` vb.) temizlenerek proje yapısı sadeleştirildi.
